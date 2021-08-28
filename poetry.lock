@@ -50,6 +50,14 @@ python-versions = ">=3.5.0"
 unicode_backport = ["unicodedata2"]
 
 [[package]]
+name = "classy-json"
+version = "3.2.1"
+description = "Dot-access for Python dictionaries like JS!"
+category = "main"
+optional = false
+python-versions = ">=3.7.3,<4.0.0"
+
+[[package]]
 name = "click"
 version = "8.0.1"
 description = "Composable command line interface toolkit"
@@ -493,8 +501,8 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.7"
-content-hash = "fa24b90c20234d4ad4f8c279ec59744b5888450436577dbc43023dc7d6735482"
+python-versions = "^3.7.3"
+content-hash = "bb91e8079176a7e142b0a053e70a007cdbe5d7b94294a1d0ef5917cd1b93ab40"
 
 [metadata.files]
 appdirs = [
@@ -512,6 +520,10 @@ certifi = [
 charset-normalizer = [
     {file = "charset-normalizer-2.0.4.tar.gz", hash = "sha256:f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"},
     {file = "charset_normalizer-2.0.4-py3-none-any.whl", hash = "sha256:0c8911edd15d19223366a194a513099a302055a962bca2cec0f54b8b63175d8b"},
+]
+classy-json = [
+    {file = "classy-json-3.2.1.tar.gz", hash = "sha256:d38aec14426840179024d0e59b35944f0788b5ff8654ef0eff81cf3563824662"},
+    {file = "classy_json-3.2.1-py3-none-any.whl", hash = "sha256:5e292d65609bb4231694cb37e0c50fc54750e4e4f5f2d391275911f96706a870"},
 ]
 click = [
     {file = "click-8.0.1-py3-none-any.whl", hash = "sha256:fba402a4a47334742d782209a7c79bc448911afe1149d07bdabdf480b3e2f4b6"},
