@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "toxic-flask"
+version = "1.0.0"
+description = "A simple API in Flask to detect toxicity in text"
+authors = ["Milo Weinberg <iapetus011@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+detoxify = "^0.2.2"
+Flask = "^2.0.1"
+
+[tool.poetry.dev-dependencies]
+black = "^21.7b0"
+flake8 = "^3.9.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
