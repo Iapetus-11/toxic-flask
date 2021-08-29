@@ -9,9 +9,11 @@ with open("config.json", "r") as config_file:
 detox_model = Detoxify("original")
 app = Flask(__name__)
 
+
 @functools.lru_cache(maxsize=CONFIG.max_cache_size)
 def analyze_text(text: str):
     return {k: float(v) for k, v in detox_model.predict(text).items()}
+
 
 @app.route("/analyze/<string:text>")
 def analyze_endpoint(text: str):
