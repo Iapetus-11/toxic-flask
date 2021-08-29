@@ -1,5 +1,5 @@
+from flask import Flask, request, abort
 from detoxify import Detoxify
-from flask import Flask
 import classyjson as cj
 
 with open("config.json", "r") as config_file:
@@ -10,6 +10,11 @@ app = Flask(__name__)
 
 @app.route("/analyze/<string:text>")
 def analyze(text: str):
+    auth = request.headers.get("authorization")
+
+    if auth != CONFIG.auth:
+        abort(401)
+
     return {k: float(v) for k, v in detox_model.predict(text).items()}
 
 

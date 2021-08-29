@@ -1,5 +1,6 @@
 {
     "host": "localhost",
     "port": 6669,
-    "debug": true
+    "debug": true,
+    "auth": "Password#123"
 }
