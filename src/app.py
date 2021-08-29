@@ -8,6 +8,7 @@ with open("config.json", "r") as config_file:
 detox_model = Detoxify("original")
 app = Flask(__name__)
 
+
 @app.route("/analyze/<string:text>")
 def analyze(text: str):
     auth = request.headers.get("authorization")
