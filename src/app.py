@@ -8,14 +8,9 @@ with open("config.json", "r") as config_file:
 detox_model = Detoxify("original")
 app = Flask(__name__)
 
-
-def float32_to_float_ify(d: dict) -> dict:
-    return {k: float(v) for k, v in d.items()}
-
-
 @app.route("/analyze/<string:text>")
 def analyze(text: str):
-    return {"toxicity": float32_to_float_ify(detox_model.predict(text))}
+    return {k: float(v) for k, v in detox_model.predict(text).items()}
 
 
 if __name__ == "__main__":
