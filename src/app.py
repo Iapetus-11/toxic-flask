@@ -6,7 +6,7 @@ import functools
 with open("config.json", "r") as config_file:
     CONFIG = cj.load(config_file)
 
-detox_model = Detoxify("original")
+detox_model = Detoxify("original-small")
 app = Flask(__name__)
 
 @functools.lru_cache(maxsize=CONFIG.max_cache_size)
