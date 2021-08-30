@@ -1,5 +1,7 @@
 {
     "host": "localhost",
-    "port": 6669,
-    "debug": true
+    "port": 8080,
+    "debug": true,
+    "auth": "Password#123",
+    "max_cache_size": 128
 }

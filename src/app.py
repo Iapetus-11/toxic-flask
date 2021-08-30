@@ -1,21 +1,28 @@
+from flask import Flask, request, abort
 from detoxify import Detoxify
-from flask import Flask
 import classyjson as cj
+import functools
 
 with open("config.json", "r") as config_file:
     CONFIG = cj.load(config_file)
 
-detox_model = Detoxify("original")
+detox_model = Detoxify("original-small")
 app = Flask(__name__)
 
 
-def float32_to_float_ify(d: dict) -> dict:
-    return {k: float(v) for k, v in d.items()}
+@functools.lru_cache(maxsize=CONFIG.max_cache_size)
+def analyze_text(text: str):
+    return {k: float(v) for k, v in detox_model.predict(text).items()}
 
 
 @app.route("/analyze/<string:text>")
-def analyze(text: str):
-    return {"toxicity": float32_to_float_ify(detox_model.predict(text))}
+def analyze_endpoint(text: str):
+    auth = request.headers.get("authorization")
+
+    if auth != CONFIG.auth:
+        abort(401)
+
+    return analyze_text(text)
 
 
 if __name__ == "__main__":
